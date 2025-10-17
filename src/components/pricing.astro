@@ -5,8 +5,8 @@ const { name, price, popular, features, button } = plan;
 // Handle price display for different pricing types
 let displayPrice = price;
 let priceDetail: { annual: string; discount: string; original: string } | null = null;
-let isCustom = typeof price === "string" && price.toLowerCase() === "custom";
-let isFree = typeof price === "string" && price.toLowerCase() === "free";
+let isCustom = typeof price === "string" && (price.toLowerCase() === "custom" || price.toLowerCase() === "sur mesure");
+let isFree = typeof price === "string" && (price.toLowerCase() === "free" || price.toLowerCase() === "gratuit");
 
 if (typeof price === "object") {
   displayPrice = price.monthly;
@@ -22,7 +22,7 @@ if (typeof price === "object") {
   {popular && (
     <div class="absolute top-0 right-6 -translate-y-1/2">
       <span class="bg-indigo-600 text-white px-3 py-1 text-xs font-semibold rounded-full">
-        Popular
+        Populaire
       </span>
     </div>
   )}
@@ -39,13 +39,13 @@ if (typeof price === "object") {
         <div class="flex flex-col items-center">
           <div class="flex items-baseline">
             <span class="text-4xl font-bold text-gray-900">{displayPrice}</span>
-            <span class="text-gray-600 ml-1">/month</span>
+            <span class="text-gray-600 ml-1">/mois</span>
           </div>
           {priceDetail && (
             <div class="mt-2 text-sm text-gray-600">
               <span class="line-through">{priceDetail.original}</span>
               <span class="text-green-600 font-semibold ml-2">
-                Save {priceDetail.discount}
+                Économisez {priceDetail.discount}
               </span>
             </div>
           )}
