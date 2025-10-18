@@ -29,6 +29,24 @@ jobs:
       - name: Build site
         run: pnpm run build
 
+      - name: Debug secrets (vérification)
+        run: |
+          if [ -z "${{ secrets.FTP_SERVER }}" ]; then
+            echo "❌ FTP_SERVER est vide ou non défini"
+          else
+            echo "✅ FTP_SERVER est défini"
+          fi
+          if [ -z "${{ secrets.FTP_USERNAME }}" ]; then
+            echo "❌ FTP_USERNAME est vide ou non défini"
+          else
+            echo "✅ FTP_USERNAME est défini"
+          fi
+          if [ -z "${{ secrets.FTP_PASSWORD }}" ]; then
+            echo "❌ FTP_PASSWORD est vide ou non défini"
+          else
+            echo "✅ FTP_PASSWORD est défini"
+          fi
+
       - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
