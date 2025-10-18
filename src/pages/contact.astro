@@ -1,5 +1,4 @@
 ---
-import Contactform from "@/components/contactform.astro";
 import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 import Layout from "@/layouts/Layout.astro";
@@ -13,30 +12,24 @@ import { Icon } from "astro-icon/components";
       <Fragment slot="desc">Je suis là pour vous aider.</Fragment>
     </Sectionhead>
 
-    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
-      <div>
-        <h2 class="font-medium text-2xl text-gray-800">Me contacter</h2>
-        <p class="text-lg leading-relaxed text-slate-500 mt-3">
-          Une question ? Un projet ? Je suis disponible. Remplissez le formulaire ou contactez-moi directement par email ou téléphone.
-        </p>
-        <div class="mt-5">
-          <div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
-            <span>1734 Sanfransico, CA 93063</span>
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
-              href="mailto:hello@astroshipstarter.com"
-              >hello@astroshipstarter.com</a
-            >
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
-              href="tel:+1 (987) 4587 899">+1 (987) 4587 899</a
-            >
-          </div>
+    <div class="mx-auto max-w-4xl mt-16">
+      <h2 class="font-medium text-2xl text-gray-800">Me contacter</h2>
+      <p class="text-lg leading-relaxed text-slate-500 mt-3">
+        Une question ? Un projet ? Contactez‑moi directement par email ou téléphone.
+      </p>
+      <div class="mt-5">
+        <div class="flex items-center mt-2 space-x-2 text-gray-600">
+          <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
+          <span>Proche de Perpignan, France</span>
         </div>
-      </div>
-      <div>
-        <Contactform />
+        <div class="flex items-center mt-2 space-x-2 text-gray-600">
+          <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" />
+          <a href="mailto:elianb.pro@gmail.com">elianb.pro@gmail.com</a>
+        </div>
+        <div class="flex items-center mt-2 space-x-2 text-gray-600">
+          <Icon class="text-gray-400 w-4 h-4" name="uil:phone" />
+          <a href="tel:+33756838222">07 56 83 82 22</a>
+        </div>
       </div>
     </div>
   </Container>
