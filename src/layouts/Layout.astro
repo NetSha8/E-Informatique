@@ -7,7 +7,9 @@ import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
 
 export interface Props {
-  title: string;
+  title?: string;
+  description?: string;
+  image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
@@ -17,43 +19,107 @@ const resolvedImageWithDomain = new URL(
   Astro.site
 ).toString();
 
-const { title } = Astro.props;
+const { title, description, image } = Astro.props;
 
 const makeTitle = title
-  ? title + " | " + "Astroship"
-  : "Astroship - Starter Template for Astro with Tailwind CSS";
+  ? title + " | E Informatique"
+  : "E Informatique - Technicien Informatique & Développeur";
+
+// Descriptions par défaut selon la page
+const defaultDescriptions: Record<string, string> = {
+  "": "Technicien informatique et développeur freelance. Assistance informatique, dépannage, maintenance, développement backend et automatisation pour particuliers et petites entreprises.",
+  "About": "Découvrez mon parcours de technicien informatique passionné par les systèmes, Linux et le développement backend. Freelance expérimenté en maintenance et automatisation informatique.",
+  "Blog": "Articles et conseils sur l'informatique, les systèmes, le code et les bonnes pratiques techniques. Partage de connaissances et réflexions sur la technologie.",
+  "Contact": "Contactez-moi pour vos besoins en assistance informatique, développement backend ou automatisation. Disponible pour interventions et projets.",
+  "Pricing": "Découvrez mes tarifs pour l'assistance informatique, le développement et l'automatisation. Formules adaptées aux particuliers et petites entreprises.",
+};
+
+const pageDescription = description || defaultDescriptions[title || ""] || "Technicien informatique et développeur. Assistance informatique, dépannage, développement backend et automatisation.";
+
+const pageImage = image || resolvedImageWithDomain;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#000000" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="French" />
+    <meta name="author" content="Elian B - Technicien Informatique & Développeur" />
 
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
+    <!-- SEO Tags -->
     <SEO
       title={makeTitle}
-      description="Astroship is a starter website template for Astro built with TailwindCSS."
+      description={pageDescription}
       canonical={canonicalURL}
       twitter={{
-        creator: "@surjithctly",
-        site: "@web3templates",
+        creator: "@NetSha8",
+        site: "@NetSha8",
         card: "summary_large_image",
       }}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Astroship - Starter Template for Astro`,
-          image: resolvedImageWithDomain,
+          title: makeTitle,
+          image: pageImage,
         },
         image: {
-          alt: "Astroship Homepage Screenshot",
+          alt: "E Informatique - Services informatiques professionnels",
+          width: 1200,
+          height: 630,
+          type: "image/png",
+        },
+        article: {
+          publishedTime: new Date().toISOString(),
         },
       }}
     />
+
+    <!-- Schema.org Structured Data - Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "E Informatique",
+        "description": "Technicien informatique et développeur freelance. Assistance, dépannage, développement et automatisation informatique.",
+        "url": "https://e-informatique.fr",
+        "telephone": "+33XXXXXXXXX",
+        "email": "elianb.pro@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "",
+          "addressLocality": "Perpignan",
+          "addressRegion": "Occitanie",
+          "postalCode": "",
+          "addressCountry": "FR"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Perpignan"
+        },
+        "serviceType": [
+          "Assistance informatique",
+          "Dépannage informatique",
+          "Développement backend",
+          "Automatisation",
+          "Configuration systèmes",
+          "Administration Linux"
+        ],
+        "image": "https://e-informatique.fr/opengraph.jpg",
+        "logo": "https://e-informatique.fr/favicon.svg",
+        "sameAs": [
+          "https://github.com/NetSha8"
+        ]
+      }
+    </script>
+
+    <!-- Additional meta tags for better SEO -->
+    <link rel="canonical" href={canonicalURL} />
   </head>
   <body>
     <Navbar />

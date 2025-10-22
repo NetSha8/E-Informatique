@@ -11,7 +11,10 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
 });
 ---
 
-<Layout title="About">
+<Layout
+  title="About"
+  description="Découvrez mon parcours de technicien informatique passionné par les systèmes Linux et le développement backend. Freelance expérimenté en assistance, maintenance et automatisation informatique."
+>
   <Container>
     <Sectionhead>
       <Fragment slot="title">À propos</Fragment>
@@ -23,7 +26,7 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
         Un parcours technique en évolution
       </h2>
       <p class="text-lg leading-relaxed text-slate-500">
-Je suis technicien informatique freelance, passionné par les réseaux et le code. Mon travail se situe à l'intersection de l'informatique de terrain et du développement logiciel.
+Je suis technicien informatique freelance, passionné par les systèmes et le code. Mon travail se situe à l'intersection de l'informatique de terrain et du développement logiciel.
 
 Après plusieurs années à intervenir sur des problématiques variées (dépannage, configuration réseau, maintenance), je me forme activement au développement backend et à l'ingénierie système. Cette montée en compétences me permet aujourd'hui d'aller au-delà du simple dépannage&nbsp;: j'automatise, je construis des outils, je mets en place des infrastructures plus robustes.
 
@@ -31,7 +34,7 @@ Après plusieurs années à intervenir sur des problématiques variées (dépann
 <ul class="list-disc pl-6 my-3 text-lg leading-relaxed text-slate-500">
   <li>L'administration système Linux et l'automatisation de tâches</li>
   <li>La création de scripts et d'outils en ligne de commande pour gagner en efficacité</li>
-  <li>La compréhension approfondie de comment les réseaux fonctionnent réellement</li>
+  <li>La compréhension approfondie de comment les systèmes fonctionnent réellement</li>
   <li>Le développement backend avec Python, en explorant également des langages système</li>
 </ul>
       </p>
