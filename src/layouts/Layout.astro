@@ -23,18 +23,18 @@ const { title, description, image } = Astro.props;
 
 const makeTitle = title
   ? title + " | E Informatique"
-  : "E Informatique - Technicien Informatique & Développeur";
+  : "E Informatique - Développeur Windows & Technicien IT Perpignan";
 
 // Descriptions par défaut selon la page
 const defaultDescriptions: Record<string, string> = {
-  "": "Technicien informatique et développeur freelance. Assistance informatique, dépannage, maintenance, développement backend et automatisation pour particuliers et petites entreprises.",
-  "About": "Découvrez mon parcours de technicien informatique passionné par les systèmes, Linux et le développement backend. Freelance expérimenté en maintenance et automatisation informatique.",
-  "Blog": "Articles et conseils sur l'informatique, les systèmes, le code et les bonnes pratiques techniques. Partage de connaissances et réflexions sur la technologie.",
-  "Contact": "Contactez-moi pour vos besoins en assistance informatique, développement backend ou automatisation. Disponible pour interventions et projets.",
-  "Pricing": "Découvrez mes tarifs pour l'assistance informatique, le développement et l'automatisation. Formules adaptées aux particuliers et petites entreprises.",
+  "": "Développeur Windows (C#/.NET) et technicien IT à Perpignan. Développement d'applications desktop, administration Windows, assistance informatique en présentiel et à distance. Pyrénées-Orientales (66).",
+  "About": "Développeur spécialisé en applications Windows (C#, C) et administration système. Technicien informatique freelance basé à Perpignan. Interventions locales et à distance.",
+  "Blog": "Articles et conseils sur le développement Windows, C#, administration système et bonnes pratiques informatiques. Partage d'expertise technique.",
+  "Contact": "Contactez-moi pour vos projets d'applications Windows ou assistance informatique à Perpignan et environs. Interventions en présentiel ou à distance.",
+  "Pricing": "Tarifs pour développement d'applications Windows, administration système et assistance informatique. Services adaptés aux particuliers et entreprises du 66.",
 };
 
-const pageDescription = description || defaultDescriptions[title || ""] || "Technicien informatique et développeur. Assistance informatique, dépannage, développement backend et automatisation.";
+const pageDescription = description || defaultDescriptions[title || ""] || "Développeur Windows C#/.NET et technicien IT à Perpignan. Applications sur mesure, administration Windows, assistance en présentiel et à distance.";
 
 const pageImage = image || resolvedImageWithDomain;
 ---
@@ -49,7 +49,11 @@ const pageImage = image || resolvedImageWithDomain;
     <meta name="theme-color" content="#000000" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="French" />
-    <meta name="author" content="Elian B - Technicien Informatique & Développeur" />
+    <meta name="author" content="Elian B - Développeur Windows & Technicien IT" />
+    <meta name="geo.region" content="FR-66" />
+    <meta name="geo.placename" content="Perpignan" />
+    <meta name="geo.position" content="42.698334;2.895556" />
+    <meta name="ICBM" content="42.698334, 2.895556" />
 
     <!-- SEO Tags -->
     <SEO
@@ -86,7 +90,7 @@ const pageImage = image || resolvedImageWithDomain;
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "E Informatique",
-        "description": "Technicien informatique et développeur freelance. Assistance, dépannage, développement et automatisation informatique.",
+        "description": "Développeur Windows (C#/.NET) et technicien IT. Développement d'applications desktop, administration Windows, assistance informatique en présentiel et à distance.",
         "url": "https://e-informatique.fr",
         "telephone": "+33XXXXXXXXX",
         "email": "elianb.pro@gmail.com",
@@ -95,21 +99,69 @@ const pageImage = image || resolvedImageWithDomain;
           "streetAddress": "",
           "addressLocality": "Perpignan",
           "addressRegion": "Occitanie",
-          "postalCode": "",
+          "postalCode": "66000",
           "addressCountry": "FR"
         },
-        "areaServed": {
-          "@type": "City",
-          "name": "Perpignan"
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "42.698334",
+          "longitude": "2.895556"
         },
-        "serviceType": [
-          "Assistance informatique",
-          "Dépannage informatique",
-          "Développement backend",
-          "Automatisation",
-          "Configuration systèmes",
-          "Administration Linux"
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Perpignan"
+          },
+          {
+            "@type": "City",
+            "name": "Canet-en-Roussillon"
+          },
+          {
+            "@type": "City",
+            "name": "Saint-Cyprien"
+          },
+          {
+            "@type": "City",
+            "name": "Argelès-sur-Mer"
+          },
+          {
+            "@type": "City",
+            "name": "Rivesaltes"
+          },
+          {
+            "@type": "City",
+            "name": "Thuir"
+          },
+          {
+            "@type": "City",
+            "name": "Ille-sur-Têt"
+          },
+          {
+            "@type": "City",
+            "name": "Narbonne"
+          },
+          {
+            "@type": "City",
+            "name": "Leucate"
+          },
+          {
+            "@type": "Place",
+            "name": "Plaine du Roussillon"
+          }
         ],
+        "serviceType": [
+          "Développement d'applications Windows",
+          "Programmation C# et .NET",
+          "Programmation système en C",
+          "Administration Windows Server",
+          "Maintenance Windows",
+          "Assistance Windows",
+          "Support technique présentiel",
+          "Assistance informatique à distance",
+          "Automatisation PowerShell",
+          "Maintenance informatique"
+        ],
+        "priceRange": "€€",
         "image": "https://e-informatique.fr/opengraph.jpg",
         "logo": "https://e-informatique.fr/favicon.svg",
         "sameAs": [
